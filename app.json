@@ -1,8 +1,41 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/wardrobe/wardrobe",
+    "pages/circle/circle",
+    "pages/mine/mine"
   ],
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1E8AE8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "iconPath": "assets/images/tabbar.png",
+        "selectedIconPath": "assets/images/tabbarSelected.png",
+        "pagePath": "pages/index/index",
+        "text": "试衣间"
+      },
+      {
+        "iconPath": "assets/images/tabbar.png",
+        "selectedIconPath": "assets/images/tabbarSelected.png",
+        "pagePath": "pages/wardrobe/wardrobe",
+        "text": "衣橱"
+      },
+      {
+        "iconPath": "assets/images/tabbar.png",
+        "selectedIconPath": "assets/images/tabbarSelected.png",
+        "pagePath": "pages/circle/circle",
+        "text": "圈子"
+      },
+      {
+        "iconPath": "assets/images/tabbar.png",
+        "selectedIconPath": "assets/images/tabbarSelected.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

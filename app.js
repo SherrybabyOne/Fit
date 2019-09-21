@@ -1,39 +1,84 @@
+import Ajax from './utils/request'
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+    wx.checkSession({
+      // session_key未过期
+      success: (res)=>{
+        try {
+          const token = wx.getStorageSync('token')
+          if (token) {
+            // 获取用户userInfo
+            Ajax({
+              url: 'user/userInfo',
+              method: 'GET',
+              header: {
+                token
               }
-            }
-          })
+            }).then(res => {
+              this.globalData.hasUserInfo = true
+              this.globalData.userInfo = res
+              console.log(res, "后端返回的用户信息")
+            })
+            // 获取用户clothes
+            Ajax({
+              url: 'clothes/clothes',
+              method: 'GET',
+              header: {
+                token
+              }
+            }).then(res => {
+              console.log(res)
+            })
+            // 获取用户搭配
+          }
+        } catch (e) {
+          console.log(e)
         }
+      },
+      // session_key已过期
+      fail: ()=>{
+        // 跳转到登录窗口
+        wx.switchTab({
+          url: '/pages/mine/mine'
+        })
+        // // 登录
+        // wx.login({
+        //   timeout:10000,
+        //   success: (res)=>{
+        //     if (res.code) {
+        //       // 发送网络请求
+        //       Ajax({
+        //         url: 'user/code2session',
+        //         method: 'POST',
+        //         data: {
+        //           code: res.code
+        //         }
+        //       }).then(res => {
+        //         const { token } = res
+        //         wx.setStorage({
+        //           key: "token",
+        //           data: token
+        //         })
+        //       })
+        //     } else {
+        //       console.log('登录失败!' + res.errMsg)
+        //     }
+        //   },
+        //   fail: ()=>{
+        //     console.log('接口调用失败')
+        //   }
+        // });
       }
-    })
+    });
+  },
+  onHide: function () {
+    if (!this.globalData.hasUserInfo) {
+      wx.clearStorage();
+    }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    hasUserInfo: false
   }
 })

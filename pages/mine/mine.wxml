@@ -1,0 +1,97 @@
+<!--index.wxml-->
+<view>
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+        <view class="header">
+            <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
+                <image class="userinfo-avatar" src="/assets/images/defaultUser.jpeg" mode="cover"></image>
+            </button>
+            <view style="display: flex;flex-direction: column;justify-content: space-around">
+                <text style="font-size: 36rpx">未登录/注册</text>
+                <text style="font-size: 24rpx;color: rgb(172, 170, 170)">点击头像课登录/注册</text>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="header">
+            <image class="userinfo-avatar" src="{{userInfo.avatar_url ? userInfo.avatar_url : userInfo.avatarUrl}}" mode="cover"></image>
+            <view class="header-details">
+                <text>{{userInfo.nickname ? userInfo.nickname : userInfo.nickName}}</text>
+                <view>关注: {{userInfo.liked}}</view>
+                <view>粉丝: 0 </view>
+            </view>
+        </view>
+    </block>
+    <view class="blank"></view>
+    <view class="weui-cell" bindtap="myRelease">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbar.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>我的发布</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell" bindtap="myLikes">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbar.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>我的喜欢</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell" bindtap="collocationRequest">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbar.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>搭配请求</view>
+            <view class="weui-badge" style="margin-left: 5px;">1</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell" bindtap="myRequest">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbar.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>我的请求</view>
+            <view class="weui-badge" style="margin-left: 5px;">1</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="blank"></view>
+    <view class="weui-cell" bindtap="updateUser">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbarSelected.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>修改资料</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell" bindtap="commonProblems">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbarSelected.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>常见问题</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell" bindtap="suggestedFeedback">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+            <image src="/assets/images/tabbarSelected.png" style="width: 25px; height: 25px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+            <view>建议反馈</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="blank"></view>
+    <block wx:if="{{hasUserInfo}}">
+        <view class="user-logout">
+            <button bindtap="handleLogOut">退出登录</button>
+        </view>
+    </block>
+</view>

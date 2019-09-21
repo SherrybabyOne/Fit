@@ -1,0 +1,19 @@
+/* 用户未登录样式 */
+.noUser {
+  height: 268rpx;
+  margin: 128rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 用户登录样式 */
+.picture {
+  width: 350rpx;
+  margin: 12.5rpx;
+}
+.clothes-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,9 @@
+<view bindtap='releaseCircle'  style='font-size:14px;text-align:center;background-color:white'>
+  <image src="/assets/images/plus.png" style='margin-top:4px;width:30px;height:30px;'></image>
+  <button hover-class="none" size='mini'>发布到我的圈子</button>
+</view>
+
+<view>
+  <view class="wrapper">
+  </view>
+</view>
