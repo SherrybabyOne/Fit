@@ -1,3 +1,5 @@
+utils/
+
 # Windows
 [Dd]esktop.ini
 Thumbs.db
@@ -9,7 +11,6 @@ $RECYCLE.BIN/
 .Spotlight-V100
 .TemporaryItems
 .Trashes
-utils/
 
 # Node.js
 node_modules/
