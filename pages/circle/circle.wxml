@@ -1,9 +1,29 @@
-<view bindtap='releaseCircle'  style='font-size:14px;text-align:center;background-color:white'>
-  <image src="/assets/images/plus.png" style='margin-top:4px;width:30px;height:30px;'></image>
-  <button hover-class="none" size='mini'>发布到我的圈子</button>
-</view>
+<!-- <view class="wrapper" style="background-image: url('http://blog.sherrybaby.club/FoLiOtslxq3FfIGea-W8ryswEse0')">
+  <view class="header">
+    <view style="display: flex;flex-direction: row">
+      <view class="header-avatar">{{data[0].nickname}}</view>
+      <view class="header-follow">关注</view>
+    </view>
+    <view class="header-title">{{data[0].content}}</view>
+  </view>
+  <view style="width: 100rpx;height: 100rpx;background-color: green"></view>
+</view> -->
 
-<view>
-  <view class="wrapper">
+<view class="containter">
+  <view class="card-wrapper" wx:for="{{data}}" wx:key="{{index}}">
+    <image style="width: 100%;" src="{{item.pics_url[0]}}" mode="cover"></image>
+    <view class="card-message">
+      <text>{{item.content}}</text>
+      <view class="card-details">
+        <view>
+          <image class="card-avatar" src="{{item.avatar_url}}"></image>
+          <text>{{item.nickname}}</text>
+        </view>
+        <view>
+          <image src="/assets/images/tabbar.png"></image>
+          <text>{{item.likes_num}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

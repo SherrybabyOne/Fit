@@ -21,27 +21,11 @@ Page({
           token
         }
       }).then( res => {
+        console.log(res.data)
         const data = res.data
         this.setData({
           data
         })
-      })
-    }
-  },
-  // 发布圈子
-  releaseCircle: function () {
-    if (!this.data.hasUserInfo) {
-      wx.showToast({
-        title: '请先登录用户！',
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '页面未开发',
-        showCancel: false,
-        confirmText: '再见'
       })
     }
   },

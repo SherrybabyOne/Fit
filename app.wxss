@@ -1,7 +1,7 @@
 /* 引入WeUI组件库 */
 @import './weui-wxss-master/weui-wxss/dist/style/weui.wxss';
 /**app.wxss**/
-.container {
+/* .container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,4 +13,4 @@
 .blank {
   height: 20rpx;
   background-color: #f7f4f4;
-}
+} */

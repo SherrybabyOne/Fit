@@ -1,0 +1,70 @@
+/* .wrapper {
+  margin: 28rpx auto;
+  width: 700rpx;
+  height: 1200rpx;
+  border-radius: 20rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header {
+  margin: 46rpx;
+}
+.header-avatar {
+  font-family: PingFangSC-Medium -apple-system-font,Helvetica Neue,sans-serif;
+  color: #6F6F6F;
+  font-size: 53rpx;
+  line-height: 80rpx;
+}
+.header-follow {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 120rpx;
+  height: 80rpx;
+  border-radius: 24rpx;
+  border: 4rpx solid #E38888;
+  background-color: #FFFFFF;
+  color: #E38888;
+  font-family: PingFangSC-Semibold -apple-system-font,Helvetica Neue,sans-serif;
+  text-align: center;
+  line-height: 72rpx;
+  margin-left: 16rpx;
+}
+.header-title {
+  margin-top: 16rpx;
+  color: #5B5959;
+  font-family: PingFangSC-Semibold -apple-system-font,Helvetica Neue,sans-serif;
+  font-size: 45rpx;
+} */
+/* .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+} */
+.containter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-wrapper {
+  width: 350rpx;
+  margin: 12.5rpx;
+}
+.card-message {
+  box-sizing: border-box;
+  padding: 0 20rpx 8rpx;
+}
+.card-avatar {
+  border-radius: 50%;
+}
+.card-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-details image {
+  width: 38rpx;
+  height: 38rpx;
+}
