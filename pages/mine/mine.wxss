@@ -5,6 +5,10 @@
   margin: 28rpx;
   padding: 0 28rpx
 }
+.user-login-button {
+  display: inline-block;
+  background-color: #51de97;
+}
 .get-user-button {
   width: 128rpx;
   height: 128rpx;
