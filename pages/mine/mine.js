@@ -7,7 +7,10 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    visible: false
+
   },
   onLoad: function () {
     if (app.globalData.hasUserInfo) {
@@ -85,6 +88,34 @@ Page({
       })
     }
   },
+
+  // 用户点击登录/注册响应事件
+  handleOpen: function () {
+    this.setData({
+      visible: true
+    })
+  },
+  // 用户取消登录
+  userLoginCancel: function () {
+    this.setData({
+      visible: false
+    })
+  },
+  // 用户微信手机号登录
+  userLoginWx: function (e) {
+    console.log('用户微信绑定手机号登录')
+  },
+  // 用户使用其它手机号登录
+  userLoginPhone: function () {
+    wx.navigateTo({
+      url: '/pages/login/login'
+    });
+  },
+  // 用户登录
+  userLogin: function () {
+    console.log('aaa')
+  },
+
   // 我的发布
   myRelease: function () {
     if (!this.data.hasUserInfo) {

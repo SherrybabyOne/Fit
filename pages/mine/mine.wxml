@@ -1,8 +1,9 @@
 <!--index.wxml-->
-<view class="container">
+<view>
     <block wx:if="{{!hasUserInfo && canIUse}}">
         <view class="header">
-            <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
+            <!-- <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;"> -->
+            <button bindtap="handleOpen" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
                 <image class="userinfo-avatar" src="/assets/images/defaultUser.jpeg" mode="cover"></image>
             </button>
             <view style="display: flex;flex-direction: column;justify-content: space-around">
@@ -14,10 +15,10 @@
     <block wx:else>
         <view class="header">
             <image class="userinfo-avatar" src="{{userInfo.avatar_url ? userInfo.avatar_url : userInfo.avatarUrl}}" mode="cover"></image>
-            <view class="header-details" >
-                <view class="user-name">{{userInfo.nickname ? userInfo.nickname : userInfo.nickName}}</view>
-                <view class="user-like">关注: {{userInfo.liked}}</view>
-                <view class="user-liked">粉丝: 0 </view>
+            <view class="header-details">
+                <text>{{userInfo.nickname ? userInfo.nickname : userInfo.nickName}}</text>
+                <view>关注: {{userInfo.liked}}</view>
+                <view>粉丝: 0 </view>
             </view>
         </view>
     </block>

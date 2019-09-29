@@ -1,0 +1,24 @@
+<view>
+  <input
+    auto-focus
+    type='number'
+    placeholder="请输入手机号"
+    maxlength="6"
+    maxlength="11"
+    bindinput="bindKeyInput"
+  />
+  <button
+    disabled="{{ disabled }}"
+    bindtap="bindVerify"
+    disabled="{{ disabled }}">
+      {{ verifyText }}
+  </button>
+  <input
+    placeholder="输入验证码"
+    bindinput="bindVerifyInput"
+    type='number'
+    minlength="5"
+    maxlength="5"
+  />
+  <button bindtap="bindLogin">登录</button>
+</view>
