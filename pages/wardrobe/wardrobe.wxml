@@ -1,0 +1,67 @@
+<block wx:if='{{!hasUserInfo}}'>
+  <view class="noUser">
+    <view>请先登录用户,享受搭不搭服务!</view>
+    <button bindtap="handleLogin">跳转至登录页面</button>
+  </view>
+</block>
+<block wx:else>
+  <!-- 标题，tabbar部分 -->
+  <i-tabs current="{{ current_class }}" bindchange="handleChangeClass">
+      <i-tab key="tab1" title="单品"></i-tab>            
+      <i-tab key="tab2" title="搭配"></i-tab>
+  </i-tabs>
+  <view wx:if='{{ current_class === "tab1" }}'>
+    <i-tabs current="{{ current_clothes }}" bindchange="handleChangeClothes">
+        <i-tab key="tab1" title="上衣"></i-tab>            
+        <i-tab key="tab2" title="裤子"></i-tab>          
+        <i-tab key="tab3" title="裙装"></i-tab>          
+        <i-tab key="tab4" title="鞋袜"></i-tab>          
+        <i-tab key="tab5" title="配饰"></i-tab>          
+        <i-tab key="tab6" title="包包"></i-tab>
+    </i-tabs>
+  </view>
+  <view wx:else='{{ current_class === "tab2" }}'>
+    <i-tabs current="{{ current_suits }}" bindchange="handleChangeSuits">
+        <i-tab key="tab1" title="聚会"></i-tab>            
+        <i-tab key="tab2" title="外出"></i-tab>            
+        <i-tab key="tab3" title="旅行"></i-tab>
+    </i-tabs>
+  </view>
+  <!-- 图片部分 -->
+  <!-- 单品部分 -->
+  <view wx:if='{{ current_class === "tab1" }}'>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab1' && clothes.a.length > 0 }}">
+      <view wx:for="{{clothes.a}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab2' && clothes.b.length > 0 }}">
+      <view wx:for="{{clothes.b}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab3' && clothes.c.length > 0 }}">
+      <view wx:for="{{clothes.c}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab4' && clothes.d.length > 0 }}">
+      <view wx:for="{{clothes.d}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab5' && clothes.e.length > 0 }}">
+      <view wx:for="{{clothes.e}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+    <view class="clothes-wrapper" wx:if="{{ current_clothes === 'tab6' && clothes.f.length > 0 }}">
+      <view wx:for="{{clothes.f}}" wx:key="{{index}}">
+        <cover-image class="picture" src="{{item.pic_url}}" bindload="" binderror=""></cover-image>
+      </view>
+    </view>
+  </view>
+  <!-- 搭配部分 -->
+  <view wx:if='{{ current_class === "tab2" }}'>
+  </view>
+</block>

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "i-tabs": "./../../iview-weapp-master/tabs/index",
+    "i-tab": "./../../iview-weapp-master/tab/index"
+  },
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "衣橱页面",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}
