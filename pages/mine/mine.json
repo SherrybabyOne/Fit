@@ -1,5 +1,9 @@
 {
   "usingComponents": {
+    "i-modal": "../../iview-weapp-master/modal/index",
+    "i-cell-group": "../../iview-weapp-master/cell-group/index",
+    "i-cell": "../../iview-weapp-master/cell/index",
+    "i-icon": "../../iview-weapp-master/icon/index"
   },
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTextStyle": "black",

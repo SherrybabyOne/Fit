@@ -14,34 +14,26 @@
     "borderStyle": "white",
     "list": [
       {
-
-        "iconPath": "assets/images/yijia2.png",
-        "selectedIconPath": "assets/images/yijia.png",
-
+        "iconPath": "assets/images/tabbar/yijia.png",
+        "selectedIconPath": "assets/images/tabbar/yijia2.png",
         "pagePath": "pages/index/index",
         "text": "试衣间"
       },
       {
-
-        "iconPath": "assets/images/dianpu.png",
-        "selectedIconPath": "assets/images/dianpu2.png",
-
+        "iconPath": "assets/images/tabbar/dianpu.png",
+        "selectedIconPath": "assets/images/tabbar/dianpu2.png",
         "pagePath": "pages/wardrobe/wardrobe",
         "text": "衣橱"
       },
       {
-
-        "iconPath": "assets/images/xingqiu.png",
-        "selectedIconPath": "assets/images/xingqiu2.png",
-
+        "iconPath": "assets/images/tabbar/xingqiu.png",
+        "selectedIconPath": "assets/images/tabbar/xingqiu2.png",
         "pagePath": "pages/circle/circle",
         "text": "圈子"
       },
       {
-
-        "iconPath": "assets/images/mine.png",
-        "selectedIconPath": "assets/images/mine4.png",
-
+        "iconPath": "assets/images/tabbar/mine.png",
+        "selectedIconPath": "assets/images/tabbar/mine2.png",
         "pagePath": "pages/mine/mine",
         "text": "我的"
       }

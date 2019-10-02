@@ -5,7 +5,7 @@ const Ajax = (options) => {
     const {url, method, data, header} = options;
     wx.request({
       url: baseUrl + url,
-      method: method,
+      method,
       data: data,
       header: header,
       success: (res) => {

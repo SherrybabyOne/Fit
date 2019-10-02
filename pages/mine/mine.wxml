@@ -2,8 +2,8 @@
 <view>
     <block wx:if="{{!hasUserInfo && canIUse}}">
         <view class="header">
-            <!-- <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;"> -->
-            <button bindtap="handleOpen" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
+            <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
+            <!-- <button bindtap="handleOpen" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;"> -->
                 <image class="userinfo-avatar" src="/assets/images/defaultUser.jpeg" mode="cover"></image>
             </button>
             <view style="display: flex;flex-direction: column;justify-content: space-around">
@@ -16,88 +16,53 @@
         <view class="header">
             <image class="userinfo-avatar" src="{{userInfo.avatar_url ? userInfo.avatar_url : userInfo.avatarUrl}}" mode="cover"></image>
             <view class="header-details">
-                <text>{{userInfo.nickname ? userInfo.nickname : userInfo.nickName}}</text>
-                <view>关注: {{userInfo.liked}}</view>
-                <view>粉丝: 0 </view>
+                <view>{{userInfo.nickname ? userInfo.nickname : userInfo.nickName}}</view>
+                <view>这是一条有个性的签名</view>
+                <view class="liked-fan">
+                    <view class="liked-fan-details">
+                        <view>关注</view>
+                        <view>{{userInfo.liked}}</view>
+                    </view>
+                    <view class="liked-fan-details">
+                        <view>粉丝</view>
+                        <view>0</view>
+                    </view>
+                </view>
             </view>
         </view>
     </block>
     <view class="blank"></view>
-    <view class="weui-cell" bindtap="myRelease">
-       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/show.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>我的发布</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="myLikes">
-       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/star.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>我的喜欢</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="collocationRequest">
-        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/dapeiq.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>搭配请求</view>
-            <view class="weui-badge" style="margin-left: 5px;">1</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="myRequest">
-        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/r.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>我的请求</view>
-            <view class="weui-badge" style="margin-left: 5px;">1</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
+    <i-cell-group>
+        <view class="cell-total-title">我的圈子</view>
+        <i-cell title="我的发布" bind:click="myRelease" is-link>
+            <image slot="icon" src="/assets/images/mine/show.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="我的喜欢" bind:click="myLikes" is-link>
+            <image slot="icon" src="/assets/images/mine/star.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="搭配请求" bind:click="collocationRequest" is-link>
+            <image slot="icon" src="/assets/images/mine/dapeiq.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="我的请求" bind:click="myRequest" is-link>
+            <image slot="icon" src="/assets/images/mine/request.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+    </i-cell-group>
     <view class="blank"></view>
-    <view class="weui-cell" bindtap="updateUser">
-       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/c.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>修改资料</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="commonProblems">
-        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/q.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>常见问题</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="suggestedFeedback">
-        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/f.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>建议反馈</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
-    <view class="weui-cell" bindtap="setting">
-        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="/assets/images/shezhi.png" style="width: 25px; height: 25px; display: block"/>
-        </view>
-        <view class="weui-cell__bd">
-            <view>我的设置</view>
-        </view>
-        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </view>
+    <i-cell-group>
+        <view class="cell-total-title">常用</view>
+        <i-cell title="修改资料" bind:click="updateUser" is-link>
+            <image slot="icon" src="/assets/images/mine/c.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="常见问题" bind:click="commonProblems" is-link>
+            <image slot="icon" src="/assets/images/mine/q.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="建议反馈" bind:click="suggestedFeedback" is-link>
+            <image slot="icon" src="/assets/images/mine/f.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+        <i-cell title="设置" bind:click="setting" is-link>
+            <image slot="icon" src="/assets/images/mine/shezhi.png" style="width: 25px; height: 25px; display: block"/>
+        </i-cell>
+    </i-cell-group>
     <view class="blank"></view>
     <block wx:if="{{hasUserInfo}}">
         <view class="user-logout">
@@ -106,3 +71,7 @@
     </block>
 </view>
 
+<i-modal title="请选择登录方式" visible="{{ visible }}" show-ok="{{ false }}" bind:cancel="userLoginCancel">
+    <button bindtap="userLoginWx">使用微信绑定手机号登录</button>
+    <button bindtap="userLoginPhone">使用其它手机号登录</button>
+</i-modal>

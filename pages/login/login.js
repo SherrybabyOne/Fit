@@ -65,6 +65,7 @@ Page({
     const { inputNumber, inputVerify } = this.data
     Ajax({
       url: 'user/registerByVCode',
+      method: 'POST',
       data: {
         phone: inputNumber,
         VCode: inputVerify

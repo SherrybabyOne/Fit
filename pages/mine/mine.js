@@ -7,10 +7,8 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     visible: false
-
   },
   onLoad: function () {
     if (app.globalData.hasUserInfo) {
@@ -220,6 +218,23 @@ Page({
   },
   // 建议反馈
   suggestedFeedback: function () {
+    if (!this.data.hasUserInfo) {
+      wx.showToast({
+        title: '请先登录用户！',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '页面未开发',
+        showCancel: false,
+        confirmText: '再见'
+      })
+    }
+  },
+  // 我的设置
+  setting: function () {
     if (!this.data.hasUserInfo) {
       wx.showToast({
         title: '请先登录用户！',

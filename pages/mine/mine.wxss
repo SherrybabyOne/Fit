@@ -1,44 +1,43 @@
-.container{
-  margin: 0rpx 20rpx;
-}
+/* 头部部分样式 */
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
   margin: 28rpx;
   padding: 0 28rpx;
-}
-.header-details{
-  margin-right: 50%;
-}
-.user-name{
-  font-size: 35rpx;
-}
-.user-like{
- color: #666666;
-}
-.user-liked{
- color: #666666;
-}
-.get-user-button {
-  width: 128rpx;
-  height: 128rpx;
-  border-radius: 50%;
 }
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
   border-radius: 50%;
 }
+.header-details {
+  margin-left: 100rpx;
+}
+.liked-fan {
+  display: flex;
+  flex-direction: row;
+}
+.liked-fan-details {
+  width: 100rpx;
+  text-align: center;
+}
+
+.cell-total-title {
+  margin: 25rpx;
+  color: #8AA5D5;
+  font-size: 44rpx;
+}
+
 .user-logout {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #f7f4f4;
+  background-color: rgba(140,149,234,0.10);
   padding: 48rpx;
 }
 .user-logout button {
-  background-color: #f7f4f4;
+  background-color: rgba(140,149,234,0.10);
   width: 380rpx;
 }
 

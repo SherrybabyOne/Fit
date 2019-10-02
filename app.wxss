@@ -1,5 +1,4 @@
 /* 引入WeUI组件库 */
-@import './weui-wxss-master/weui-wxss/dist/style/weui.wxss';
 /**app.wxss**/
 /* .container {
   height: 100%;
@@ -9,8 +8,8 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-}
+} */
 .blank {
   height: 20rpx;
-  background-color: #f7f4f4;
-} */
+  background-color: rgba(140,149,234,0.10);
+}
