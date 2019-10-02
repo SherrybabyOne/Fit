@@ -1,15 +1,11 @@
-<<<<<<< HEAD
 .container{
   margin: 0rpx 20rpx;
 }
-=======
->>>>>>> b087671de8ab4c41df5c191b2d64dd14874a8d8f
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 28rpx;
-<<<<<<< HEAD
   padding: 0 28rpx;
 }
 .header-details{
@@ -23,13 +19,6 @@
 }
 .user-liked{
  color: #666666;
-=======
-  padding: 0 28rpx
-}
-.user-login-button {
-  display: inline-block;
-  background-color: #51de97;
->>>>>>> b087671de8ab4c41df5c191b2d64dd14874a8d8f
 }
 .get-user-button {
   width: 128rpx;
