@@ -1,20 +1,8 @@
-import Ajax from './../../utils/request'
+import Ajax from '../../../utils/request'
 
 const app = getApp();
 
 Page({
-  onLoad: function() {
-
-  },
-  onShow: function() {
-
-  },
-  data: {
-    inputNumber: null,
-    inputVerify: null,
-    disabled: false,
-    verifyText: '获取验证码'
-  },
   // 手机号输入监听
   bindKeyInput: function(e) {
     this.setData({
@@ -68,13 +56,38 @@ Page({
       method: 'POST',
       data: {
         phone: inputNumber,
-        VCode: inputVerify
+        VCode: inputVerify + ''
       },
       header: {
         'Content-Type': 'application/json'
       }
     }).then(res => {
       console.log(res)
+      // first_register
+      // token
+      // user_id
+      // userInfo
+      const { first_register, token, user_info } = res;
+      if (first_register) {
+        console.log('第一次登录')
+        wx.navigateTo({
+          url: '/pages/mine/update/update'
+        });
+      } else {
+        console.log('之前登录过')
+        wx.setStorageSync("token", token)
+        app.globalData.userInfo = user_info;
+        app.globalData.hasUserInfo = true;
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      }
     })
-  }
+  },
+  data: {
+    inputNumber: null,
+    inputVerify: null,
+    disabled: false,
+    verifyText: '获取验证码'
+  },
 })

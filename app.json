@@ -1,12 +1,10 @@
 {
   "pages": [
-
     "pages/index/index",
     "pages/wardrobe/wardrobe",
     "pages/circle/circle",
     "pages/mine/mine",
-    "pages/login/login"
-
+    "pages/mine/login/login"
   ],
   "tabBar": {
     "color": "#999",

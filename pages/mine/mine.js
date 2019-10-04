@@ -4,85 +4,27 @@ import Ajax from './../../utils/request';
 const app = getApp()
 
 Page({
-  data: {
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    visible: false
-  },
   onLoad: function () {
-    if (app.globalData.hasUserInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (!this.data.canIUse) {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-          app.globalData.hasUserInfo = true
-        }
-      })
-    }
+    this.setData({
+      ...app.globalData
+    })
+    // if (app.globalData.hasUserInfo) {
+    //   this.setData({
+    //     userInfo: app.globalData.userInfo,
+    //     hasUserInfo: true
+    //   })
+    // }
   },
-  // 用户授权
-  onGetUserInfo: function( e ) {
-    // 用户没有授权,授权失败
-    if (!e.detail.userInfo) {
-      console.log('用户拒绝授权!')
+  // 处理用户登录状态不一致的情况
+  onShow: function () {
+    if (this.data.hasUserInfo === app.globalData.hasUserInfo ) {
+      return null;
     } else {
-      // 用户授权成功
-      // 调用wx.login拿到token存在storage里
-      wx.login({
-        timeout:10000,
-        success: (res)=>{
-          if (res.code) {
-            // 发送网络请求
-            Ajax({
-              url: 'user/code2session',
-              method: 'POST',
-              data: {
-                code: res.code
-              }
-            }).then(res => {
-              // 获取token
-              const { token } = res
-              // token存到storage里
-              wx.setStorage({
-                key: "token",
-                data: token
-              })
-              // 获取衣服列表
-              Ajax({
-                url: 'clothes/clothes',
-                method: 'GET',
-                header: {
-                  token
-                }
-              }).then(res => {
-                console.log(res)
-              })
-            })
-          } else {
-            console.log('登录失败!' + res.errMsg)
-          }
-        },
-        fail: ()=>{
-          console.log('接口调用失败')
-        }
-      });      
-
-      const userInfo = e.detail.userInfo
-      app.globalData.userInfo = userInfo
-      app.globalData.hasUserInfo = true
+      const { hasUserInfo, userInfo } = app.globalData
       this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
+        userInfo,
+        hasUserInfo,
+        visible: false
       })
     }
   },
@@ -106,12 +48,8 @@ Page({
   // 用户使用其它手机号登录
   userLoginPhone: function () {
     wx.navigateTo({
-      url: '/pages/login/login'
+      url: '/pages/mine/login/login'
     });
-  },
-  // 用户登录
-  userLogin: function () {
-    console.log('aaa')
   },
 
   // 我的发布
@@ -262,10 +200,10 @@ Page({
       success: (result) => {
         // 用户确认退出
         console.log(this)
-        if(result.confirm){
+        if(result.confirm) {
           wx.clearStorage();
           this.setData({
-            userInfo: {},
+            userInfo: null,
             hasUserInfo: false
           })
           app.globalData.userInfo = null;
@@ -273,5 +211,10 @@ Page({
         }
       }
     })
-  }
+  },
+  data: {
+    userInfo: null,
+    hasUserInfo: false,
+    visible: false
+  },
 })

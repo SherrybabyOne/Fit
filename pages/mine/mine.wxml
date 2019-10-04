@@ -1,12 +1,10 @@
-<!--index.wxml-->
 <view>
-    <block wx:if="{{!hasUserInfo && canIUse}}">
+    <block wx:if="{{!hasUserInfo}}">
         <view class="header">
-            <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
-            <!-- <button bindtap="handleOpen" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;"> -->
+            <button bindtap="handleOpen" style="width: 128rpx; height: 128rpx;margin: 0;padding: 0;border-radius: 50%;">
                 <image class="userinfo-avatar" src="/assets/images/defaultUser.jpeg" mode="cover"></image>
             </button>
-            <view style="display: flex;flex-direction: column;justify-content: space-around">
+            <view class="header-details" style="display: flex;flex-direction: column;justify-content: space-around">
                 <text style="font-size: 36rpx">未登录/注册</text>
                 <text style="font-size: 24rpx;color: rgb(172, 170, 170)">点击头像进行登录/注册</text>
             </view>

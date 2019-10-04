@@ -1,2 +1,3 @@
 <!--index.wxml-->
 <view>主页面</view>
+<button bindtap="goTo">跳转到完善信息页面</button>
